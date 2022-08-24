@@ -29,20 +29,19 @@ except ConnectTimeout:
 	print("- RESULTS -")
 	print(f"Status code - 0")
 	print("Cannot connect to this site (Time is up). Maybe, site blocked in your country. If no, try later.")
-	exit()
 except ConnectionError:
 	print("Request doesn't sended\n")
 	print("- RESULTS -")
 	print(f"Status code - 0")
 	print("Cannot connect to this site (Host dropped connection). Maybe, site blocked in your country. If no, try later.")
-	exit()
-print("Request sended\n")
-print("- RESULTS -")
-print(f"Status code - {r.status_code}")
-print(define_resp(r.status_code))
-if html.lower() in ["y", "yes"]:
-	date = str(datetime.datetime.now().strftime("%d-%m-%Y--%H-%M-%S"))
-	with open(date+".html", "w") as f: f.write(r.text)
-	print(f"Writed HTML into {date}.html")
+else:
+	print("Request sended\n")
+	print("- RESULTS -")
+	print(f"Status code - {r.status_code}")
+	print(define_resp(r.status_code))
+	if html.lower() in ["y", "yes"]:
+		date = str(datetime.datetime.now().strftime("%d-%m-%Y--%H-%M-%S"))
+		with open(date+".html", "w") as f: f.write(r.text)
+		print(f"Writed HTML into {date}.html")
 
 input()
