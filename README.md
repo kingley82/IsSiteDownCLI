@@ -9,3 +9,5 @@ Note: this program needs the "requests" library. It should install automatically
 ```
 pip3 install requests
 ```
+## Have problems?
+If you have problems with this program, or you find error/bug and don't want to fix it, contact me in Telegram @a352642
