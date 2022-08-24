@@ -4,7 +4,7 @@ import os
 import datetime
 try:
 	import requests
-	from requests.exceptions import ConnectTimeout, ConnectionError
+	from requests.exceptions import ConnectTimeout, ConnectionError, ReadTimeout
 except:
 	os.system("pip install requests -q --upgrade")
 
@@ -28,12 +28,17 @@ except ConnectTimeout:
 	print("Request doesn't sended\n")
 	print("- RESULTS -")
 	print(f"Status code - 0")
-	print("Cannot connect to this site (Time is up). Maybe, site blocked in your country. If no, try later.")
+	print("Cannot connect to this site (Time is up). Maybe, site blocked in your country. If no, site is DOWN")
 except ConnectionError:
 	print("Request doesn't sended\n")
 	print("- RESULTS -")
 	print(f"Status code - 0")
-	print("Cannot connect to this site (Host dropped connection). Maybe, site blocked in your country. If no, try later.")
+	print("Cannot connect to this site (Host dropped connection). Maybe, site blocked in your country. If no, site is DOWN")
+except ReadTimeout:
+	print("Request doesn't sended\n")
+	print("- RESULTS -")
+	print("Status code - 0")
+	print("Cannot connect to this site (ReadTimeout). Maybe, site blocked in your country. If no, site is DOWN")
 else:
 	print("Request sended\n")
 	print("- RESULTS -")
